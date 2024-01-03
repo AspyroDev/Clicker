@@ -4,10 +4,15 @@ var clickerElements = document.getElementsByClassName("clicker");
 
 var stockValue = parseInt(stockSpan.innerHTML);
 
+var clickCounter = 0;
 var clickAdding = 1;
 
-stockElement.addEventListener("click", function() {addToStock()});
-stockElement.addEventListener("click", function() {updateClickers()});
+stockElement.addEventListener("click", function() {
+    addToStock();
+    updateClickers();
+    clickCounter++;
+    console.log(clickCounter);
+});
 
 for (let index = 0; index < clickerElements.length; index++) {
     clickerElements[index].getElementsByClassName("upgrade")[0].addEventListener("click", function() {levelUpClicker(clickerElements[index])});
