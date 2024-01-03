@@ -37,10 +37,12 @@ function levelUpClicker(clicker) {
     var clickerName = clicker.getElementsByClassName("name")[0].children[0].innerHTML;
     var clickerLevel = parseInt(clicker.getElementsByClassName("level")[0].children[1].innerHTML);
     var upgradeCost = clicker.getElementsByClassName("cost")[0].children[0].innerHTML;
+    var upgradeButton = clicker.getElementsByClassName("upgrade")[0];
 
     console.log("upgrade " + clickerName + " from " + clickerLevel);
 
-
     clicker.getElementsByClassName("level")[0].children[1].innerHTML = clickerLevel + 1;
     clicker.getElementsByClassName("cost")[0].children[0].innerHTML = Math.ceil(upgradeCost * 1.15 + clickerLevel);
+
+    upgradeButton.style.display = "none";
 }
