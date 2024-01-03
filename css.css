@@ -1,4 +1,5 @@
 html {
+    background-color: rgb(254, 249, 244);
     box-sizing: border-box;
     font-size: 16px;
   }
@@ -16,4 +17,52 @@ html {
   img {
     max-width: 100%;
     height: auto;
+  }
+
+  .stock {
+    border: 1px black solid;
+    background-color: rgb(240, 240, 230);
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 5%;
+    margin: 1% 3%;
+    text-align: center;
+  }
+
+  #clickers {
+    align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .clicker {
+    border: 1px black solid;
+    background-color: rgb(240, 240, 230);
+    font-size: 1.5rem;
+    padding: 1%;
+    margin: 1% 3%;
+  }
+
+  .name {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .data {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 1%;
+    justify-content: space-between;
+  }
+
+  .upgrade {
+    background-color: red;
+    color: white;
+    height: 40px;
+    justify-content: baseline;
+    text-align: center;
+    width: 100px;
   }
