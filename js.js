@@ -13,8 +13,8 @@ for (let index = 0; index < clickerElements.length; index++) {
     clickerElements[index].getElementsByClassName("upgrade")[0].addEventListener("click", function() {levelUpClicker(clickerElements[index])});
 }
 
-function addToStock() {
-    stockValue = stockValue + clickAdding;
+function addToStock(amount = clickAdding) {
+    stockValue = stockValue + amount;
     stockSpan.innerHTML = stockValue.toString();
 }
 
@@ -45,4 +45,7 @@ function levelUpClicker(clicker) {
     clicker.getElementsByClassName("cost")[0].children[0].innerHTML = Math.ceil(upgradeCost * 1.15 + clickerLevel);
 
     upgradeButton.style.display = "none";
+    
+    addToStock(-upgradeCost);
+    updateClickers();
 }
