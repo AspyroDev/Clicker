@@ -13,6 +13,10 @@ for (let index = 0; index < clickerElements.length; index++) {
     clickerElements[index].getElementsByClassName("upgrade")[0].addEventListener("click", function() {levelUpClicker(clickerElements[index])});
 }
 
+
+clickerElements[0].getElementsByClassName("upgrade")[0].addEventListener("click", function() {levelUpClickAdding(clickerElements[0])});
+
+
 function addToStock(amount = clickAdding) {
     stockValue = stockValue + amount;
     stockSpan.innerHTML = stockValue.toString();
@@ -42,10 +46,18 @@ function levelUpClicker(clicker) {
     console.log("upgrade " + clickerName + " from " + clickerLevel);
 
     clicker.getElementsByClassName("level")[0].children[1].innerHTML = clickerLevel + 1;
-    clicker.getElementsByClassName("cost")[0].children[0].innerHTML = Math.ceil(upgradeCost * 1.15 + clickerLevel);
+    clicker.getElementsByClassName("cost")[0].children[0].innerHTML = Math.ceil(upgradeCost * 1.3 + clickerLevel);
 
     upgradeButton.style.display = "none";
     
     addToStock(-upgradeCost);
     updateClickers();
+}
+
+function levelUpClickAdding(clicker) {
+    var clickerLevel = parseInt(clicker.getElementsByClassName("level")[0].children[1].innerHTML);
+    var levelUp = Math.ceil((clickAdding / 2) + clickerLevel);
+
+    console.log("A click will now add " + levelUp);
+    clickAdding = levelUp;
 }
