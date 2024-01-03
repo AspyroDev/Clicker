@@ -2,11 +2,12 @@ html {
     background-color: rgb(254, 249, 244);
     box-sizing: border-box;
     font-size: 16px;
-    user-select: none;
+    
   }
   
   *, *:before, *:after {
     box-sizing: inherit;
+    user-select: none;
   }
   
   body, h1, h2, h3, h4, h5, h6, p {
