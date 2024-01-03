@@ -19,7 +19,7 @@ html {
     height: auto;
   }
 
-  .stock {
+  #stock {
     border: 1px black solid;
     background-color: rgb(240, 240, 230);
     font-size: 3rem;
