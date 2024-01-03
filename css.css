@@ -61,6 +61,7 @@ html {
   .upgrade {
     background-color: red;
     color: white;
+    display: none;
     height: 40px;
     justify-content: baseline;
     text-align: center;
