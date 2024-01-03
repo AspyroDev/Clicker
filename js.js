@@ -4,23 +4,26 @@ var clickerElements = document.getElementsByClassName("clicker");
 
 var stockValue = parseInt(stockSpan.innerHTML);
 
-stockElement.addEventListener("click", function() {addToStock(1)});
+var clickAdding = 1;
+
+stockElement.addEventListener("click", function() {addToStock()});
 stockElement.addEventListener("click", function() {updateClickers()});
 
-function addToStock(amount) {
-    stockValue = stockValue + amount;
+for (let index = 0; index < clickerElements.length; index++) {
+    clickerElements[index].getElementsByClassName("upgrade")[0].addEventListener("click", function() {levelUpClicker(clickerElements[index])});
+}
+
+function addToStock() {
+    stockValue = stockValue + clickAdding;
     stockSpan.innerHTML = stockValue.toString();
 }
 
 function updateClickers() {
     for (let index = 0; index < clickerElements.length; index++) {
-        console.log(clickerElements[index]);
         
         var upgradeButton = clickerElements[index].getElementsByClassName("upgrade")[0];
         var upgradeCost = clickerElements[index].getElementsByClassName("cost")[0].children[0].innerHTML;
 
-        console.log(upgradeButton);
-        console.log(upgradeCost);
         if (upgradeCost <= stockValue) {
             upgradeButton.style.display = "block";
         }
@@ -28,4 +31,16 @@ function updateClickers() {
             upgradeButton.style.display = "none";
         }
     };
+}
+
+function levelUpClicker(clicker) {
+    var clickerName = clicker.getElementsByClassName("name")[0].children[0].innerHTML;
+    var clickerLevel = parseInt(clicker.getElementsByClassName("level")[0].children[1].innerHTML);
+    var upgradeCost = clicker.getElementsByClassName("cost")[0].children[0].innerHTML;
+
+    console.log("upgrade " + clickerName + " from " + clickerLevel);
+
+
+    clicker.getElementsByClassName("level")[0].children[1].innerHTML = clickerLevel + 1;
+    clicker.getElementsByClassName("cost")[0].children[0].innerHTML = Math.ceil(upgradeCost * 1.15 + clickerLevel);
 }
