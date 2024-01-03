@@ -2,6 +2,7 @@ html {
     background-color: rgb(254, 249, 244);
     box-sizing: border-box;
     font-size: 16px;
+    user-select: none;
   }
   
   *, *:before, *:after {
